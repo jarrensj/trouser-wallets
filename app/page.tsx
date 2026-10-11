@@ -38,10 +38,6 @@ export default function Home() {
         </nav>
 
         <div className="hero-grid">
-          <div className="edition-mark" aria-hidden="true">
-            <span>PT</span>
-            <span>001</span>
-          </div>
           <div className="hero-copy">
             <p className="eyebrow">A public record · Edition 001</p>
             <h1>
