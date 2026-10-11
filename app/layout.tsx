@@ -33,7 +33,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </div>
           <p className="footer-disclaimer">
             Fan-made site. Not affiliated with, endorsed by, or operated by
-            papertrade.
+            papertrade. Wallet data is compiled from public on-chain records;
+            we are not responsible for its accuracy or completeness.
           </p>
           <div className="payment">
             <span>HyperCore USDC recipient</span>
