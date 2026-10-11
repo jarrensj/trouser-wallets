@@ -24,7 +24,29 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <footer>
+          <div className="footer-brand">
+            <span className="wordmark">papertrouser_</span>
+            <p>A permanent record of the first edition.</p>
+          </div>
+          <p className="footer-disclaimer">
+            Fan-made site. Not affiliated with, endorsed by, or operated by
+            papertrade.
+          </p>
+          <div className="payment">
+            <span>HyperCore USDC recipient</span>
+            <a
+              href="https://app.hyperliquid.xyz/explorer/address/0x8de06c06ab675bb0bc45644d41768b76869dd376"
+              target="_blank"
+              rel="noreferrer"
+            >
+              0x8de06c06ab675bb0bc45644d41768b76869dd376 ↗
+            </a>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }

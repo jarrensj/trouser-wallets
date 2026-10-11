@@ -285,8 +285,9 @@ tbody tr:hover {
 }
 
 footer {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr minmax(16rem, 1.25fr) 1.5fr;
+  align-items: start;
   gap: 3rem;
   padding: 4rem 5vw;
   background: var(--signal);
@@ -299,6 +300,12 @@ footer p,
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.footer-disclaimer {
+  max-width: 28rem;
+  margin: 0;
+  line-height: 1.6;
 }
 
 .payment {
@@ -370,6 +377,7 @@ footer p,
   }
 
   footer {
+    grid-template-columns: 1fr;
     flex-direction: column;
   }
 

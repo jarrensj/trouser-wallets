@@ -139,23 +139,6 @@ export default function Home() {
           </table>
         </div>
       </section>
-
-      <footer>
-        <div>
-          <span className="wordmark">papertrouser_</span>
-          <p>A permanent record of the first edition.</p>
-        </div>
-        <div className="payment">
-          <span>HyperCore USDC recipient</span>
-          <a
-            href="https://app.hyperliquid.xyz/explorer/address/0x8de06c06ab675bb0bc45644d41768b76869dd376"
-            target="_blank"
-            rel="noreferrer"
-          >
-            0x8de06c06ab675bb0bc45644d41768b76869dd376 ↗
-          </a>
-        </div>
-      </footer>
     </main>
   );
 }
