@@ -166,6 +166,93 @@ h1 em {
   text-transform: uppercase;
 }
 
+.edition {
+  padding: clamp(5rem, 10vw, 9rem) 5vw;
+}
+
+.edition-heading {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: start;
+  column-gap: 3rem;
+}
+
+.edition-heading h2 {
+  max-width: 11ch;
+}
+
+.edition-intro {
+  max-width: 35rem;
+  margin: 2.5rem 0 0;
+  grid-column: 2;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.5;
+}
+
+.edition-details {
+  display: grid;
+  margin-top: clamp(4rem, 8vw, 7rem);
+  border-top: 2px solid var(--ink);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.edition-details article {
+  min-height: 19rem;
+  padding: 1.5rem 2rem 2rem 0;
+  border-right: 1px solid var(--line);
+}
+
+.edition-details article + article {
+  padding-left: 2rem;
+}
+
+.edition-details article:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.detail-number {
+  display: block;
+  margin-bottom: 5rem;
+  color: var(--signal);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.7rem;
+}
+
+.edition-details h3 {
+  margin: 0 0 1rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.edition-details p,
+.edition-sale p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.edition-sale {
+  display: grid;
+  margin-top: 1px;
+  padding: 2rem 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  grid-template-columns: 1fr 1.5fr 0.5fr;
+  gap: 3rem;
+}
+
+.edition-sale .eyebrow {
+  margin: 0;
+}
+
+.edition-sale a {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+}
+
 .ledger {
   padding: clamp(5rem, 10vw, 10rem) 5vw;
   background: var(--paper-light);
@@ -337,6 +424,35 @@ footer p,
     min-height: 9rem;
     padding: 1.5rem;
     border-bottom: 1px solid rgba(248, 245, 235, 0.25);
+  }
+
+  .edition-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .edition-intro {
+    grid-column: 1;
+  }
+
+  .edition-details {
+    grid-template-columns: 1fr;
+  }
+
+  .edition-details article,
+  .edition-details article + article {
+    min-height: auto;
+    padding: 1.5rem 0 2.5rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .detail-number {
+    margin-bottom: 2.5rem;
+  }
+
+  .edition-sale {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .ledger-heading {

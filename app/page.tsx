@@ -73,7 +73,7 @@ export default function Home() {
         </div>
         <div className="fact">
           <span className="fact-number">{pairs}</span>
-          <span className="fact-label">Pairs made</span>
+          <span className="fact-label">Pairs sold</span>
         </div>
         <div className="fact">
           <span className="fact-number">{doubleBuyers}</span>
@@ -82,6 +82,64 @@ export default function Home() {
         <div className="fact">
           <span className="fact-number">$200K</span>
           <span className="fact-label">Edition value</span>
+        </div>
+      </section>
+
+      <section className="edition" aria-labelledby="edition-heading">
+        <div className="edition-heading">
+          <p className="eyebrow">About the edition</p>
+          <h2 id="edition-heading">One hundred, made to measure.</h2>
+          <p className="edition-intro">
+            A limited run of bespoke, British-tradition pleated trousers,
+            offered in two Italian cloths and fitted individually for each
+            buyer.
+          </p>
+        </div>
+
+        <div className="edition-details">
+          <article>
+            <span className="detail-number">01</span>
+            <h3>The cut</h3>
+            <p>
+              A high waist, side adjusters, an after-dinner split and turn-ups
+              define the traditional silhouette.
+            </p>
+          </article>
+          <article>
+            <span className="detail-number">02</span>
+            <h3>The cloth</h3>
+            <p>
+              Buyers chose Art du Lin II linen by Solbiati or Favola flannel by
+              Loro Piana.
+            </p>
+          </article>
+          <article>
+            <span className="detail-number">03</span>
+            <h3>The fitting</h3>
+            <p>
+              Each pair is made to measure, with the tailor contacting buyers
+              via Telegram or email.
+            </p>
+          </article>
+        </div>
+
+        <div className="edition-sale">
+          <p className="eyebrow">The on-chain sale</p>
+          <p>
+            All <strong>100 pairs sold out</strong> at 2,000 HyperCore USDC
+            each—about $200K in total—across 79 unique wallets. Twenty-one
+            wallets bought two pairs; no wallet bought more than two.
+          </p>
+          <p>
+            Payments were sent to{" "}
+            <a
+              href="https://app.hyperliquid.xyz/explorer/address/0x8de06c06ab675bb0bc45644d41768b76869dd376"
+              target="_blank"
+              rel="noreferrer"
+            >
+              0x8de0…d376 ↗
+            </a>
+          </p>
         </div>
       </section>
 
