@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "trouser wallets",
   description:
-    "The 79 wallets that collected the sold-out papertrouser_ Edition 001.",
+    "The 79 wallets that bought the sold-out papertrouser_ edition. A fan-made ledger by trouser wallets.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
