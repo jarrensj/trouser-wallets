@@ -1,25 +1,363 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #191b19;
+  --paper: #f0ecdf;
+  --paper-light: #f8f5eb;
+  --signal: #e4492e;
+  --line: rgba(25, 27, 25, 0.22);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.hero {
+  min-height: 92vh;
+  padding: 0 5vw 6rem;
+  background:
+    linear-gradient(rgba(25, 27, 25, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 27, 25, 0.08) 1px, transparent 1px),
+    var(--paper);
+  background-size: 25vw 25vw;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 5rem;
+  border-bottom: 1px solid var(--ink);
+}
+
+.wordmark {
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.nav-link,
+.text-link,
+.ledger-note a {
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-link:hover,
+.text-link:hover,
+.ledger-note a:hover {
+  color: var(--signal);
+}
+
+.hero-grid {
+  padding-left: 25%;
+  padding-top: clamp(4rem, 9vw, 9rem);
+}
+
+.eyebrow {
+  margin: 0 0 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.065em;
+}
+
+h1 {
+  max-width: 10ch;
+  font-size: clamp(4rem, 10.5vw, 10rem);
+  line-height: 0.78;
+}
+
+h1 em {
+  color: var(--signal);
+  font-weight: 400;
+}
+
+.intro {
+  max-width: 34rem;
+  margin: 3.5rem 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.45;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2.25rem;
+}
+
+.primary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0 1.5rem;
+  background: var(--ink);
+  color: var(--paper-light);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 150ms ease;
+}
+
+.primary-link:hover {
+  background: var(--signal);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--ink);
+  color: var(--paper-light);
+}
+
+.fact {
+  display: flex;
+  min-height: 13rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 2.5rem;
+  border-right: 1px solid rgba(248, 245, 235, 0.25);
+}
+
+.fact:last-child {
+  border: 0;
+}
+
+.fact-number {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.75rem, 5vw, 5rem);
+  letter-spacing: -0.05em;
+}
+
+.fact-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ledger {
+  padding: clamp(5rem, 10vw, 10rem) 5vw;
+  background: var(--paper-light);
+}
+
+.ledger-heading {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: end;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+h2 {
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  line-height: 0.9;
+}
+
+.ledger-note {
+  max-width: 26rem;
+  justify-self: end;
+}
+
+.ledger-note p {
+  margin: 0 0 1.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-top: 2px solid var(--ink);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1.15rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+th {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+th:first-child,
+td:first-child {
+  width: 12%;
+  padding-left: 0;
+  color: rgba(25, 27, 25, 0.55);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+}
+
+th:last-child,
+td:last-child {
+  width: 10%;
+  text-align: right;
+}
+
+td code {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: clamp(0.68rem, 1.25vw, 0.88rem);
+}
+
+.pair-count {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+}
+
+.pair-count.double {
+  border-color: var(--signal);
+  background: var(--signal);
+  color: white;
+}
+
+tbody tr {
+  transition: background 100ms ease;
+}
+
+tbody tr:hover {
+  background: rgba(228, 73, 46, 0.07);
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr minmax(16rem, 1.25fr) 1.5fr;
+  align-items: start;
+  gap: 3rem;
+  padding: 4rem 5vw;
+  background: var(--signal);
+  color: white;
+}
+
+footer p,
+.payment span {
+  margin: 0.75rem 0 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-disclaimer {
+  max-width: 28rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.payment span {
+  margin: 0 0 0.75rem;
+}
+
+.payment a {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    min-height: auto;
+    padding-bottom: 4rem;
+  }
+
+  .hero-grid {
+    padding-left: 0;
+    padding-top: 3rem;
+  }
+
+  h1 {
+    font-size: clamp(3.5rem, 18vw, 6rem);
+  }
+
+  .intro {
+    margin-top: 2.5rem;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fact {
+    min-height: 9rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(248, 245, 235, 0.25);
+  }
+
+  .ledger-heading {
+    grid-template-columns: 1fr;
+    margin-bottom: 3rem;
+  }
+
+  .ledger-note {
+    justify-self: start;
+  }
+
+  td code {
+    font-size: 0.65rem;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .payment {
+    align-items: flex-start;
+  }
 }
