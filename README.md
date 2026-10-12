@@ -1,4 +1,4 @@
-# Trouser wallets
+# trouser wallets
 
 The public ledger of the 79 unique wallets that bought
 [papertrouser_](https://garments.papertrade.xyz/), a sold-out edition of 100

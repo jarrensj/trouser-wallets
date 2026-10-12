@@ -31,7 +31,7 @@ export default function Home() {
     <main>
       <header className="hero">
         <nav className="nav" aria-label="Primary navigation">
-          <span className="wordmark">papertrouser_</span>
+          <span className="wordmark">trouser wallets</span>
           <a className="nav-link" href="#wallets">
             The ledger <span aria-hidden="true">↓</span>
           </a>
