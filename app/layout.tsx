@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "trouser wallets — papertrouser_ Edition 001",
+  title: "trouser wallets",
   description:
     "The 79 wallets that collected the sold-out papertrouser_ Edition 001.",
 };
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <footer>
           <div className="footer-brand">
-            <span className="wordmark">papertrouser_</span>
+            <span className="wordmark">trouser wallets</span>
             <p>A permanent record of the first edition.</p>
           </div>
           <p className="footer-disclaimer">
