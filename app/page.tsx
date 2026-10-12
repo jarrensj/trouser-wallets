@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import WalletActions from "./wallet-actions";
+
 type Buyer = {
   wallet: string;
   pairsBought: number;
@@ -96,9 +98,7 @@ export default function Home() {
               Ordered by first purchase. Every address is shown in full; repeat
               collectors are marked with two pairs.
             </p>
-            <a href="/data/trouser-wallets.csv" download>
-              Download CSV ↓
-            </a>
+            <WalletActions wallets={buyers.map((buyer) => buyer.wallet)} />
           </div>
         </div>
 
