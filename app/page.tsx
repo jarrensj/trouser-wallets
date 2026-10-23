@@ -1,26 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
-
-type Buyer = {
-  wallet: string;
-  pairsBought: number;
-};
-
-function getBuyers(): Buyer[] {
-  const csv = fs.readFileSync(
-    path.join(process.cwd(), "public/data/trouser-wallets.csv"),
-    "utf8",
-  );
-
-  return csv
-    .trim()
-    .split("\n")
-    .slice(1)
-    .map((row) => {
-      const [wallet, pairsBought] = row.split(",");
-      return { wallet, pairsBought: Number(pairsBought) };
-    });
-}
+import { getBuyers } from "./buyers";
+import WalletActions from "./wallet-actions";
 
 export default function Home() {
   const buyers = getBuyers();
@@ -96,9 +75,7 @@ export default function Home() {
               Ordered by first purchase. Every address is shown in full; repeat
               collectors are marked with two pairs.
             </p>
-            <a href="/data/trouser-wallets.csv" download>
-              Download CSV ↓
-            </a>
+            <WalletActions wallets={buyers.map((buyer) => buyer.wallet)} />
           </div>
         </div>
 
