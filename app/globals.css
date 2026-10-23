@@ -214,6 +214,20 @@ h2 {
   font-family: inherit;
 }
 
+/* Stack every label in one cell so the button keeps the widest label's width. */
+.copy-button {
+  display: inline-grid;
+  justify-items: start;
+}
+
+.copy-button > span {
+  grid-area: 1 / 1;
+}
+
+.copy-button > [aria-hidden="true"] {
+  visibility: hidden;
+}
+
 .ledger-actions a:focus-visible,
 .ledger-actions button:focus-visible {
   outline: 2px solid var(--signal);

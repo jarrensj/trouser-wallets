@@ -8,6 +8,12 @@ type WalletActionsProps = {
   wallets: string[];
 };
 
+const copyLabels: Record<CopyStatus, string> = {
+  idle: "Copy all wallets",
+  copied: "Copied",
+  failed: "Copy failed",
+};
+
 function copyWithFallback(text: string) {
   const textarea = document.createElement("textarea");
   textarea.value = text;
@@ -71,12 +77,12 @@ export default function WalletActions({ wallets }: WalletActionsProps) {
   return (
     <>
       <div className="ledger-actions">
-        <button type="button" onClick={copyWallets}>
-          {copyStatus === "copied"
-            ? "Copied"
-            : copyStatus === "failed"
-              ? "Copy failed"
-              : "Copy all wallets"}
+        <button type="button" className="copy-button" onClick={copyWallets}>
+          {Object.entries(copyLabels).map(([status, label]) => (
+            <span key={status} aria-hidden={status !== copyStatus}>
+              {label}
+            </span>
+          ))}
         </button>
         <a href="/wallets.txt" target="_blank" rel="noreferrer">
           View as plain list ↗
