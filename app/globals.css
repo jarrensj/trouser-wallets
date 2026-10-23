@@ -215,26 +215,9 @@ h2 {
 }
 
 .ledger-actions a:focus-visible,
-.ledger-actions button:focus-visible,
-.plain-wallet-list:focus-visible {
+.ledger-actions button:focus-visible {
   outline: 2px solid var(--signal);
   outline-offset: 3px;
-}
-
-.plain-wallet-list {
-  display: block;
-  width: 100%;
-  margin-top: 1.5rem;
-  padding: 1rem;
-  resize: vertical;
-  border: 1px solid var(--line);
-  border-radius: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.72rem;
-  line-height: 1.65;
-  white-space: pre;
 }
 
 .sr-only {

@@ -1,28 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
-
+import { getBuyers } from "./buyers";
 import WalletActions from "./wallet-actions";
-
-type Buyer = {
-  wallet: string;
-  pairsBought: number;
-};
-
-function getBuyers(): Buyer[] {
-  const csv = fs.readFileSync(
-    path.join(process.cwd(), "public/data/trouser-wallets.csv"),
-    "utf8",
-  );
-
-  return csv
-    .trim()
-    .split("\n")
-    .slice(1)
-    .map((row) => {
-      const [wallet, pairsBought] = row.split(",");
-      return { wallet, pairsBought: Number(pairsBought) };
-    });
-}
 
 export default function Home() {
   const buyers = getBuyers();

@@ -29,9 +29,7 @@ function copyWithFallback(text: string) {
 export default function WalletActions({ wallets }: WalletActionsProps) {
   const walletList = wallets.join("\n");
   const [copyStatus, setCopyStatus] = useState<CopyStatus>("idle");
-  const [showPlainList, setShowPlainList] = useState(false);
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const plainListRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(
     () => () => {
@@ -68,14 +66,6 @@ export default function WalletActions({ wallets }: WalletActionsProps) {
 
     setCopyStatus(copied ? "copied" : "failed");
     resetStatusAfterDelay();
-
-    if (!copied) {
-      setShowPlainList(true);
-      requestAnimationFrame(() => {
-        plainListRef.current?.focus();
-        plainListRef.current?.select();
-      });
-    }
   }
 
   return (
@@ -88,14 +78,9 @@ export default function WalletActions({ wallets }: WalletActionsProps) {
               ? "Copy failed"
               : "Copy all wallets"}
         </button>
-        <button
-          type="button"
-          aria-expanded={showPlainList}
-          aria-controls="plain-wallet-list"
-          onClick={() => setShowPlainList((isVisible) => !isVisible)}
-        >
-          {showPlainList ? "Hide plain list" : "View as plain list"}
-        </button>
+        <a href="/wallets.txt" target="_blank" rel="noreferrer">
+          View as plain list ↗
+        </a>
         <a href="/data/trouser-wallets.csv" download>
           Download CSV ↓
         </a>
@@ -104,20 +89,9 @@ export default function WalletActions({ wallets }: WalletActionsProps) {
         {copyStatus === "copied"
           ? `${wallets.length} wallet addresses copied to the clipboard.`
           : copyStatus === "failed"
-            ? "Clipboard access failed. The plain list is open and selected for manual copying."
+            ? "Clipboard access failed. Open the plain list to copy the addresses manually."
             : ""}
       </span>
-      {showPlainList && (
-        <textarea
-          ref={plainListRef}
-          id="plain-wallet-list"
-          className="plain-wallet-list"
-          aria-label="Wallet addresses, one per line"
-          readOnly
-          rows={8}
-          value={walletList}
-        />
-      )}
     </>
   );
 }
